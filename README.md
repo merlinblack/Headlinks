@@ -44,7 +44,7 @@ $headlinks = new Headlinks(
     )
 );
 
-// Add links need for page....
+// Add links needed for page....
 $headlinks->addFile( 'testassets/moment.js' );
 $headlinks->addFile( '$jquery-ui' );
 $headlinks->addFile( 'testassets/style.css' );
