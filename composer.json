@@ -1,0 +1,19 @@
+{
+    "name": "merlinblack/headlinks",
+    "description": "Headlinks - automatically cache bust new css and js files.",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/merlinblack/Headlinks",
+    "authors": [
+        {
+            "name": "Nigel Atkinson",
+            "email": "nigel@atkinson.kiwi"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": { "NigeLib\\": "src/" }
+    }
+}
