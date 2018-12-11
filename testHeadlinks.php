@@ -16,10 +16,11 @@ $headlinks->addFile( 'testassets/test.1.2.3.js' );
 <!doctype html>
 <html>
  <head>
-  <?php echo $headlinks ?>
+  <?php echo $headlinks->getStyles() ?>
  </head>
  <body>
   <h1>This is a test</h1>
   <a href='test_headlinks.php'>Load again</a>
  </body>
+  <?php echo $headlinks->getScripts() ?>
 </html>

@@ -7,11 +7,10 @@ Headlinks - automatically cache bust new css and js files.
 ## About
 
 Headlinks is a small class for managing Javascript and CSS links. It adds the
-time stamp of the file modification to the file name, causing the users browser
-to reload the file if it has changed. Dependencies can be defined between files,
-to not only make sure that a dependency is included as well, but also included
-beforehand. To use this you will need to use mod_rewrite or equivalent with
-something like the contents of src/Headlinks.htaccess.
+time stamp of the file modification to the file name as a query parameter,
+causing the users browser to reload the file if it has changed.
+Dependencies can be defined between files, to not only make sure that a
+dependency is included as well, but also included beforehand.
 
 ## Installing
 
@@ -55,11 +54,12 @@ $headlinks->addFile( 'testassets/test.1.2.3.js' );
 <!doctype html>
 <html>
  <head>
-  <?php echo $headlinks ?>
+  <?php echo $headlinks->getStyles() ?>
  </head>
  <body>
   <h1>This is a test</h1>
   <a href='test_headlinks.php'>Load again</a>
  </body>
+  <?php echo $headlinks->getScripts() ?>
 </html>
 ```

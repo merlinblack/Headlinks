@@ -32,24 +32,32 @@ class Headlinks {
         return $this;
     }
 
-    public function getLinks() {
-        $scripts = '';
+    public function getStyles() {
         $styles = '';
         foreach( $this->files as $file ) {
             $path = pathinfo($file);
-            $version = '.' . filemtime($file) . '.';
-            $filever = $path['dirname'] . '/' . $path['filename'] . $version . $path['extension'];
-            if( $path['extension'] == 'js' ) {
-                $scripts .= "<script src='" . $filever . "'></script>\n";
-            } else if( $path['extension'] == 'css' ) {
+            if( $path['extension'] == 'css' ) {
+                $filever = $file . '?ts=' . filemtime($file);
                 $styles .= "<link rel='stylesheet' href='" . $filever . "'>\n";
             }
         }
-        return $styles . $scripts;
+        return $styles;
+    }
+
+    public function getScripts() {
+        $scripts = '';
+        foreach( $this->files as $file ) {
+            $path = pathinfo($file);
+            if( $path['extension'] == 'js' ) {
+                $filever = $file . '?ts=' . filemtime($file);
+                $scripts .= "<script src='" . $filever . "'></script>\n";
+            }
+        }
+        return $scripts;
     }
 
     public function __toString() {
-        return $this->getLinks();
+        return $this->getStyles() . $this->getScripts();
     }
 }
 
